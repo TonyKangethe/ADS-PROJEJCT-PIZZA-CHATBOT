@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-flavour",
+      "2": "I-flavour",
+      "3": "L-flavour",
+      "4": "U-flavour",
+      "5": "B-pizza_size",
+      "6": "I-pizza_size",
+      "7": "L-pizza_size",
+      "8": "U-pizza_size",
+      "9": "B-toppings",
+      "10": "I-toppings",
+      "11": "L-toppings",
+      "12": "U-toppings",
+      "13": "B-wings",
+      "14": "I-wings",
+      "15": "L-wings",
+      "16": "U-wings",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-flavour": 1,
+      "I-flavour": 2,
+      "L-flavour": 3,
+      "U-flavour": 4,
+      "B-pizza_size": 5,
+      "I-pizza_size": 6,
+      "L-pizza_size": 7,
+      "U-pizza_size": 8,
+      "B-toppings": 9,
+      "I-toppings": 10,
+      "L-toppings": 11,
+      "U-toppings": 12,
+      "B-wings": 13,
+      "I-wings": 14,
+      "L-wings": 15,
+      "U-wings": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

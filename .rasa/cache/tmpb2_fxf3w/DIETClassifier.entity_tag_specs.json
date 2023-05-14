@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-phone_number",
+      "2": "I-phone_number",
+      "3": "L-phone_number",
+      "4": "U-phone_number",
+      "5": "B-pizza_kind",
+      "6": "I-pizza_kind",
+      "7": "L-pizza_kind",
+      "8": "U-pizza_kind",
+      "9": "B-pizza_size",
+      "10": "I-pizza_size",
+      "11": "L-pizza_size",
+      "12": "U-pizza_size",
+      "13": "B-service",
+      "14": "I-service",
+      "15": "L-service",
+      "16": "U-service",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-phone_number": 1,
+      "I-phone_number": 2,
+      "L-phone_number": 3,
+      "U-phone_number": 4,
+      "B-pizza_kind": 5,
+      "I-pizza_kind": 6,
+      "L-pizza_kind": 7,
+      "U-pizza_kind": 8,
+      "B-pizza_size": 9,
+      "I-pizza_size": 10,
+      "L-pizza_size": 11,
+      "U-pizza_size": 12,
+      "B-service": 13,
+      "I-service": 14,
+      "L-service": 15,
+      "U-service": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

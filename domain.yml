@@ -1,0 +1,191 @@
+version: "3.1"
+
+intents:
+- greet
+- goodbye
+- affirm
+- thank
+- menu
+- deny
+- cancel
+- help
+- out_of_context
+- bot_challenge
+- buy_pizza
+- pizza_kind
+- pizza_size
+- name
+- service
+- delivery_address
+- locate_us
+- office_hours
+- phone_number
+
+entities:
+- pizza_kind
+- pizza_size
+- phone_number
+
+slots:
+  pizza_kind:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_kind
+  pizza_size:
+    type: categorical
+    influence_conversation: true
+    values:
+      - medium
+      - large
+      - extralarge
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+  first_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: order_form
+           requested_slot: first_name
+  last_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: order_form
+           requested_slot: last_name
+  phone_number:
+    type: float
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: phone_number                            
+  deliveryAddress:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: order_form
+           requested_slot: deliveryAddress
+  orderStatus:
+    type: categorical
+    influence_conversation: false
+    values:
+      - confirm
+      - cancel
+      - change
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: order_form
+           requested_slot: orderStatus           
+
+          
+forms:
+  order_form:
+    required_slots:
+      - pizza_kind
+      - pizza_size
+      - first_name
+      - last_name
+      - phone_number
+      - deliveryAddress
+      - orderStatus
+
+
+
+responses:
+  utter_greet:
+  - text: "Hello🤗, welcome to LunchBox Pizzeria 🍕"
+
+  utter_happy:
+  - text: "Great"
+
+  utter_goodbye:
+  - text: "Bye,Hope to see you soon 😚😚😚"
+
+  utter_help:
+  - text: " Here is what I can assist you with:\n
+             - Order a pizza\n
+             - Get pizza Menu\n
+             - Locate our pizza shops\n"
+
+  utter_out_of_context:
+  - text: Sorry, I'm not sure how to respond to that. Type "help" for assistance.
+
+  utter_default:
+  - text: I didn't quite understand that. Could you rephrase?  
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_menu:
+  - text: "Here is what you can order:"
+    image: "./lunchBoxMenu.jpg"
+
+  utter_submit:
+  - text: "I will now order for you:"
+
+  utter_ask_continue:
+  - text: "Are you sure you want cancel?"
+
+  utter_ask_pizza_size:
+  - text: "What size would you like?"
+
+  utter_ask_pizza_kind:
+  - text: "What pizza do you want"
+
+  utter_ask_first_name:
+  - text: "What is your first name?"
+
+  utter_ask_last_name:
+  - text: "So {first_name}, what is your last name?"
+
+  utter_ask_phone_number:
+  - text: "what is your phone number?" 
+
+  utter_ask_deliveryAddress:
+  - text: "Finally, provide a delivery address 🏍"
+
+  utter_ask_orderStatus:
+  - text: "Everything looks ok 👍, do you want to place the order:"
+
+  utter_outlets:
+  - text: "We are currently located at 📍: \n\n
+              - Village Market, Limuru Road.\n
+              - Westgate Mall, Mwanzi Road, Westlands.\n
+              - Yaya Centre, Arwigs Kodhek Road.\n
+              - Galleria Mall, Langata Road"
+  utter_office_hours:
+  - text: "Our working hours 🧭 are:\n\n
+              - Monday-Saturday: 
+                    10:00am - 10:00pm\n\n
+              - Sunday & Public Holidays:
+                    11:00am - 10:00pm"          
+
+actions:
+- utter_ask_continue
+- utter_iamabot
+- utter_menu
+- utter_goodbye
+- utter_greet
+- utter_submit
+- action_ask_delivery_address
+- action_ask_service
+- action_locate_us
+- action_office_hours
+- action_show_user_cart
+- action_resetSlots
+- action_ask_orderStatus
+- action_toDB
+- validate_order_form
+
+session_config:
+  session_expiration_time: 30
+  carry_over_slots_to_new_session: true

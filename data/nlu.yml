@@ -1,0 +1,440 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - niaje
+    - good morning
+    - jambo
+    - good evening
+    - moin
+    - /start
+    - habari
+    - hey there
+    - let's go
+    - sasa
+    - hey dude
+    - goodmorning
+    - dude
+    - habari gani
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - YES
+    - Yes
+    - affirm
+    - yes, i want to 
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - k
+    - yes
+    - yes please
+    - yes I would
+    - please do
+    - yup
+    - yep
+    - that's right
+    - indeed
+    - Yes, please
+    - yeah
+    - sure
+    - correct, i do
+    - of course
+    - yes i want
+    - yes thanks
+    - That would be great
+    - YES
+    - YUP
+    - Yea
+    - Yeah
+    - Yeah sure
+    - Yep
+    - Yep that's fine
+    - Yep!
+    - Yepp
+    - Yes
+    - Yes I do
+    - Yes please
+    - Yes please!
+    - Yes, I accept    
+
+- intent: thank
+  examples: |
+    - thanks!
+    - thank you
+    - thanks a lot
+    - great thanks
+    - appreciate it
+    - cool thanks
+    - Cool. Thanks
+    - Great, thanks
+    - Thank you so much
+    - Thank's!
+    - Thanks bot
+    - Thanks for that
+    - Thanks!
+    - amazing, thanks
+    - cool thank you
+    - cool, thanks
+    - danke
+    - great thanks
+    - ok thanks
+    - ok thanks
+    - ok thanks!
+    - perfect thank you
+    - thank u
+    - thank you
+    - thank you anyways
+    - thanks
+    - thanks a bunch for everything
+    - thanks a lot
+    - thanks for the help
+    - thanks you
+    - thanks!
+    - thankyou
+    - thnks
+    - thx
+    - yes thanks
+    - thanks for your information
+    - thanks f
+
+- intent: menu
+  examples: |
+    - can i see the menu
+    - what's on the menu
+    - get the menu
+    - menu please
+    - Hi, can I get the menu please?
+    - Hi, I'd like to see the pizza menu
+    - Can i get a menu
+    - I want menu
+    - pizza menu
+    - menu
+    - menu pizza
+    - pizza menu please
+    - What pizza do you offer
+    - what pizza are on offer today
+    - what can i get today
+    - can i see what i can get    
+    - send me the menu
+    - catalogue
+    - menu
+    - what can i get
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - no, i don't want to continue
+    - don't like that
+    - no way
+    - not really
+    - No, just the pizza please.
+    - no
+    - nope
+    - no thanks
+    - not that one
+    - don't use that
+    - achana nayo
+    - please no
+    - no don't do that
+    - no, use abraham.lincoln@example.com
+    - Neither
+    - apana
+    - Never
+    - Nevermind
+    - nimekataa
+    - No thank you
+    - No, not really.
+    - No, thank you
+    - No.
+    - Nopes
+    - Not really
+    - absolutely not
+    - decline
+    - definitely not
+    - deny
+    - na
+    - nah
+    - nah I'm good    
+
+- intent: cancel
+  examples: |
+    - stop
+    - cancel
+    - nevermind
+    - please stop
+    - please cancel the order
+    - i want to stop
+    - cancel the order
+    - i need to cancel everything
+    - stop the order
+    - i don't want to order anymore
+    - i want to cancel my order
+
+- intent: bot_challenge
+  examples: |
+    - bot
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - you are a bot right
+    - aren't you a bot
+    - Are you a bot?
+    - are you a BOT
+    - are you a bot?
+    - are you a machine
+    - are you a computer
+    - are you a chatbot
+    - are you a rasa bot?
+    - are you a real bot?
+    - are you a robot
+    - are you ai
+    - are you artificial
+    - are you artificial intelligence
+    - are you bot
+    - are you bot?
+    - are you rasa bot?
+    - are you real
+    - are you real lol
+    - are you really a bot
+    - are you robot
+    - are you sure that you're a bot?
+    - bot?
+    - cuz you are a bot
+    - i guess you are a chatbot
+    - oh are you chatbot?
+    - tell me, are you a bot?
+    - what are you, a bot?
+    - you are a robot
+    - you are ai
+    - you are chatbot
+    - you're a bot
+    - you robot
+    - real bot then?
+    - are you really a bbot?
+
+- intent: help
+  examples: |
+    - I need help
+    - what can you help me with
+    - can you help me
+    - what can you do
+    - I need some help
+    - help me
+    - can you please help me
+    - problem
+    - big problem
+    - How can you help me
+    - How you help me?
+    - I need some help
+    - What are my options
+    - What are you able to do?
+    - What can I ask you?
+    - What can I do?
+    - What can you demo
+    - What can you do for me?
+    - What can you do?
+    - What can you tell me?
+    - What do you do
+    - anything els
+    - are there any other options?
+    - can I ask you anything else?
+    - can you do anything else?
+    - can you help me?
+    - come back
+    - cool! can I do something else here?
+    - hello what can you do for me
+    - help
+    - help me
+    - help please
+    - help pls
+    - help?
+    - hep me
+
+- intent: out_of_context
+  examples: |
+    - what is the square root of 5
+    - I want to know the weather
+    - what is the meaning of life.
+    - Fridge Isn't Running
+    - my tv isn't working
+    - my washing machine isn't working
+    - what year is it
+    - what is the weather today
+    - what is the weather
+    - how old are you?
+    - add two plus two
+    - Hdjejene
+    - asd
+    - title
+    - how about the forecast
+    - foolish
+    - joke
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you give me your datacenter's password?
+    - Can you make sandwiches?
+    - Can you please send me an uber    
+
+- intent: buy_pizza
+  examples: |
+    - I'd like to buy a pizza
+    - i want pizzas
+    - Can I get a pizza
+    - I want a pizza
+    - pizza
+    - pizza please
+    - Pizza please
+    - Hi, can I get a pizza please?
+    - Hi, I'd like to order a pizza please
+    - Can i get a pizza
+    - Hi, I want to buy a pizza
+    - pizza please
+    - order a pizza
+    - order pizza
+    - buy a pizza
+    - Please, order me a pizza    
+    - Pizza will do    
+    - I'd like to order a pizza
+    - can i order a pizza
+    - order a pizza
+    - get a pizza
+    - get pizza
+
+- intent: pizza_kind
+  examples: |
+    - can i get the [super supreme](pizza_kind) pizza
+    - i want a large [tropical vegan](pizza_kind)
+    - Hi, I'd like to order a large [pepperoni lovers](pizza_kind) pizza 
+    - my order is [bbq chicken](pizza_kind)
+    - I want the [bbq beef](pizza_kind) pizza
+    - Please, may i have the [margherita] pizza
+    - place an order for [super supreme](pizza_kind) pizza
+    - Hi, I'd like to order a large [pepperoni lovers](pizza_kind) pizza please
+
+- intent: pizza_size
+  examples: |
+    - Hi, can I get a [large](pizza_size) please?
+    - Hi, I'd like a [medium](pizza_size)
+    - Can i get an [extra large](pizza_size)
+    - Hi, I'd like to order a [extra large](pizza_size) pizza with extra cheese
+    - [large](pizza_size)
+    - place an order for super supreme pizza, a [medium](pizza_size) one.                
+
+- intent: name
+  examples: |
+    - i want to give you my name
+    - give name
+    - my first name is [Tony](first_name)
+    - you need to know my name
+    - my name
+    - name is [Lucy](first_name)
+    - you need to know my name
+    - do you know my name?
+    - my first name is  
+    - do you know my name?
+    - [Alice](first_name) 
+
+- intent: service
+  examples: |
+    - i want to takeaway
+    - my order is for delivery
+    - i want a delivery
+    - [dine-in](service) option
+    - please i will takeaway
+    - [delivery](service)
+    - delivered
+    - [takeaway](service)
+    - dine-in 
+
+- intent: delivery_address
+  examples: |
+    - Langata, Langata road, Oakland House
+    - Thika, Kwame Nkurumah street, kigio plaza
+    - westlands, waiyaki way, delta towers
+    - parklands, 5th avenue, kwaheri villas
+    - garden estate, thika road, zuhari apartments   
+
+- intent: phone_number
+  examples: |
+    - and number is [254773870799](phone_number).
+    - [25478123456](phone_number)
+    - i want to give you my phone number
+    - give your my phone number
+    - my phone number is [0773870799](phone_number)
+    - [0787123123](phone_number)    
+    - my telephone number is [254773870799](phone_number)
+    - my number is  [0773870799](phone_number)    
+
+- intent: locate_us
+  examples: |
+    - where a are you located
+    - where can i find your restaurant
+    - find your location
+    - are you located in kileleshwa
+    - Locate our pizza shops
+    - which is the closet shop near me
+    - locate pizza shop
+    - locate our pizza shop
+    - location
+    - pin location
+    - send me your pizza restaurant
+    - find your store
+    - where a are your outlets
+    - where can i find your outlet
+    - find your outlets
+    - outlets
+    - outlet
+    - Locate our pizza outlets
+    - which is the closet outlet near me    
+    - where can i find
+    - what is the closet shop
+    - the nearest pizza shop
+
+- intent: office_hours
+  examples: |
+    - what time do you open
+    - working hours 
+    - are you guys open 
+    - do you open at 9am
+    - tell me the time you open
+    - what time do you close
+    - are you closed
+    - are you still open
+    - open
+    - closes
+    - closed
+
+- regex: phone_number
+  examples: |
+    - \d{10,12}

@@ -1,0 +1,108 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_help
+
+- story: answer out of context
+  steps:
+  - intent: out_of_context
+  - action: utter_out_of_context
+
+- story: give help
+  steps:
+  - intent: help
+  - action: utter_help
+
+- story: inform pizza outlets
+  steps:
+  - intent: locate_us
+  - action: action_locate_us
+
+- story: inform office hours
+  steps:
+  - intent: office_hours
+  - action: action_office_hours
+
+- story: inform store location+office hours
+  steps:
+  - intent: locate_us
+  - action: action_locate_us  
+  - intent: office_hours
+  - action: action_office_hours
+
+- story: inform office hours+store location
+  steps:
+  - intent: office_hours
+  - action: action_office_hours
+  - intent: locate_us
+  - action: action_locate_us         
+
+- story: user cancels order_1
+  steps:
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - intent: cancel
+  - action: utter_ask_continue
+  - intent: affirm
+  - action: action_deactivate_loop
+  - active_loop: null
+
+- story: user cancels order but want to continue_1
+  steps:
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - intent: cancel
+  - action: utter_ask_continue
+  - intent: deny
+  - action: utter_happy
+  - action: order_form
+  - active_loop: order_form
+
+- story: story_1
+  steps:
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: pizza_kind
+  - slot_was_set:
+    - pizza_kind: "super supreme"
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - slot_was_set:
+    - pizza_size: large
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: Tom
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: kamau
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - phone_number: 0712345678
+  - slot_was_set:
+    - requested_slot: deliveryAddress
+  - slot_was_set:
+    - deliveryAddress: "Thika, Kwame Nkurumah street, kigio plaza"
+  - slot_was_set:  
+    - requested_slot: orderStatus    
+  - slot_was_set:  
+    - orderStatus: Confirm
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: action_show_user_cart  
+  - action: action_toDB
+  - action: action_resetSlots
+  - action: utter_goodbye
