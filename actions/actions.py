@@ -248,16 +248,17 @@ class toDB(Action):
             dateStamp = date.today().isoformat()
 
             def insert():
-                db.insert({'firstName': tracker.get_slot("first_name"),
-                           'lastName': tracker.get_slot("last_name"),
-                           'pizzaType': tracker.get_slot("pizza_type"),
-                           'pizzaSize':  tracker.get_slot("pizza_size"),
-                           'phoneNumber': tracker.get_slot("phone_number"),
-                           'address': tracker.get_slot("deliveryAddress"),
-                           'orderID': orderID,
-                           'timeStamp': timeStamp,
-                           'dateStamp': dateStamp,
-                           'userID': tracker.current_state()["sender_id"]})
+                db.insert({"firstName": tracker.get_slot("first_name"),
+                           "lastName": tracker.get_slot("last_name"),
+                           "pizzaType": tracker.get_slot("pizza_type"),
+                           "pizzaSize":  tracker.get_slot("pizza_size"),
+                           "phoneNumber": tracker.get_slot("phone_number"),
+                           "address": tracker.get_slot("deliveryAddress"),
+                           "orderID": orderID,
+                           "timeStamp": timeStamp,
+                           "dateStamp": dateStamp,
+                           "userID": tracker.current_state()["sender_id"]})
+            
             insert()
 
             dispatcher.utter_message(text=f"Order placed correctly! Your order ID is {orderID}.\n You will get a call once your Pizza has arrived.\n\n\n ❤❤Enjoy your meal❤❤")
