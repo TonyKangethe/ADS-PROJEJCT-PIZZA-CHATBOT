@@ -1,45 +1,20 @@
 version: "3.1"
 
 rules:
-
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
-
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-
-- rule: Show menu anytime user ask
-  steps:
-  - intent: menu
-  - action: utter_menu  
-
+#---------------------------activation of Order form--------------------------#
 - rule: Activate Order Form
   steps:
   - intent: buy_pizza
   - action: order_form
   - active_loop: order_form
 
-- rule: Order Form + bot
-  condition:
-  - active_loop: order_form
+- rule: Activate Order Form
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: inform_order
   - action: order_form
-  - active_loop: order_form
+  - active_loop: order_form   
 
-- rule: Order Form + menu
-  condition:
-  - active_loop: order_form
-  steps:
-  - intent: menu
-  - action: utter_menu
-  - action: order_form
-  - active_loop: order_form    
+#---------------------------deactivation of Order form--------------------------#
 
 - rule: Submit Order Form
   condition:
@@ -49,13 +24,70 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_submit
-  - action: action_show_user_cart    
+  - action: action_show_user_cart
+  - action: action_ask_confirmation
+  - intent: affirm
   - action: action_toDB
   - action: action_resetSlots
-  - action: utter_goodbye  
+
+- rule: Submit Order Form
+  condition:
+  - active_loop: order_form
+  steps:
+  - action: order_form 
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_show_user_cart
+  - action: action_ask_confirmation
+  - intent: deny
+  - action: action_toDB
+  - action: action_resetSlots  
+
+#---------------------------salutations--------------------------#
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say hi when user says Hi
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+#---------------------------Services--------------------------#  
+
+- rule: Show menu anytime user ask
+  steps:
+  - intent: menu
+  - action: utter_menu
+
+- rule: Show prices when asked about prices
+  steps:
+  - intent: ask_price
+  - action: action_show_price
+
+- rule: Show office hours when asked about working hours
+  steps:
+  - intent: office_hours
+  - action: utter_office_hours
+
+- rule: Show locations when asked about outlet locations
+  steps:
+  - intent: locate_us
+  - action: utter_outlets       
+
+#--------------------------------------------------------------#   
 
 - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
   steps:
   - intent: nlu_fallback
   - action: utter_default
+     

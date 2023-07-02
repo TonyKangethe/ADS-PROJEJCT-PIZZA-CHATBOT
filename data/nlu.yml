@@ -16,11 +16,16 @@ nlu:
     - /start
     - habari
     - hey there
+    - hi NARU
     - let's go
     - sasa
     - hey dude
+    - Hey Naru
     - goodmorning
     - dude
+    - Naru
+    - N.A.R.U
+    - n.a.r.u
     - habari gani
     - goodevening
     - good afternoon
@@ -194,6 +199,14 @@ nlu:
     - i want to stop
     - cancel the order
     - i need to cancel everything
+    - cancel my last order
+    - cancel it
+    - cancel the second order
+    - cancel the order from Tony
+    - i want to cancel my order, is it too late?
+    - i changed my mind
+    - cancel my order
+    - i want to cancel my order    
     - stop the order
     - i don't want to order anymore
     - i want to cancel my order
@@ -304,7 +317,21 @@ nlu:
     - Can you give me your datacenter's password
     - Can you give me your datacenter's password?
     - Can you make sandwiches?
-    - Can you please send me an uber    
+    - Can you please send me an uber 
+
+- intent: inform_order
+  examples: |
+    - Hi, I'd like to order a [large](pizza_size) [pepperoni lovers](pizza_kind) pizza for delivery, please. My delivery address is 123 Kimathi Street.
+    - Hey, can I get a [medium](pizza_size) [super supreme](pizza_kind) pizza 4 delvry @ 123 Main St? Thx!
+    - Hey there! Can I order an [extra large](pizza_size) pizza for delivery?
+    - Hola! I would like to order a [extra large](pizza_size) [tropical vegan] pizza for delivery to mombasa road. Gracias!
+    - Hi! Can I place an order for [bbq beef](pizza_kind) pizza and be a [medium](pizza_size)
+    - I'm craving a [Super supreme] pizza for delivery. Can you delivery Address is Stima plaza, Parklands.
+    - [extra large](pizza_size) [super supreme](pizza_kind)
+    - [medium](pizza_size) [margherita](pizza_kind), if that's possible?
+    - [large](pizza_size) [bbq chicken](pizza_kind), if that's okay.
+    - [pepperoni lovers](pizza_kind) pizza for delivery, please! Deliver to Elite suite Thika superhighway
+    - Hey there! I'd like to place an order for a large pizza.       
 
 - intent: buy_pizza
   examples: |
@@ -320,6 +347,19 @@ nlu:
     - Can i get a pizza
     - Hi, I want to buy a pizza
     - pizza please
+    - I feel like purchasing a pizza.
+    - Can I place an order for a pizza?
+    - Pizza sounds good, I'd like to buy one.
+    - I'm in the mood to buy a pizza.
+    - I'd like to get my hands on a pizza.
+    - Is it possible for me to purchase a pizza?
+    - I have a craving for pizza and want to buy one.
+    - I want to indulge in a pizza and will buy one.
+    - A pizza is on my mind, and I'd like to buy one.
+    - I'd love to purchase a delicious pizza.
+    - Pizza is calling my name, I want to buy one.
+    - Could you sell me a pizza, please?
+    - I am interested in buying a pizza.
     - order a pizza
     - order pizza
     - buy a pizza
@@ -337,8 +377,15 @@ nlu:
     - i want a large [tropical vegan](pizza_kind)
     - Hi, I'd like to order a large [pepperoni lovers](pizza_kind) pizza 
     - my order is [bbq chicken](pizza_kind)
+    - Can I be served the [super supreme](pizza_kind) pizza?
+    - I'm interested in getting the [bbq beef](pizza_kind) pizza, please.
+    - Would it be alright if I ordered the [tropical vegan](pizza_kind) pizza?
+    - May I have the [pepperoni lovers](pizza_kind) pizza, if it's not too much trouble?
+    - Can I request the [margherita](pizza_kind), if that's possible?
+    - I'd like to have the Super Supreme pizza, if that's okay.
+    - Could I get the [bbq chicken](pizza_kind) pizza
     - I want the [bbq beef](pizza_kind) pizza
-    - Please, may i have the [margherita] pizza
+    - Please, may i have the [margherita](pizza_kind) pizza
     - place an order for [super supreme](pizza_kind) pizza
     - Hi, I'd like to order a large [pepperoni lovers](pizza_kind) pizza please
 
@@ -347,9 +394,25 @@ nlu:
     - Hi, can I get a [large](pizza_size) please?
     - Hi, I'd like a [medium](pizza_size)
     - Can i get an [extra large](pizza_size)
+    - May I have a [medium](pizza_size), please?
+    - Could I get a [large](pizza_size), please?
+    - Is it possible to get [extra large](pizza_size)?
+    - Can I request a large?
+    - I'd like a [medium](pizza_size), please.
+    - May I opt for a [extra large](pizza_size)?
+    - Can I choose a [large](pizza_size)?
+    - Can I be get a large?
+    - Could I be provided with an extra large?
+    - Is a medium size available to me?
+    - Can I be allowed a large?
+    - May I receive a extra large portion?
+    - Can I be offered a medium?
+    - Could I get a large?
+    - Is a [extra large](pizza_size) available?
+    - Can I go for a [medium](pizza_size) size?
     - Hi, I'd like to order a [extra large](pizza_size) pizza with extra cheese
     - [large](pizza_size)
-    - place an order for super supreme pizza, a [medium](pizza_size) one.                
+    - place an order for super supreme pizza, a [medium](pizza_size) one.
 
 - intent: name
   examples: |
@@ -365,24 +428,16 @@ nlu:
     - do you know my name?
     - [Alice](first_name) 
 
-- intent: service
-  examples: |
-    - i want to takeaway
-    - my order is for delivery
-    - i want a delivery
-    - [dine-in](service) option
-    - please i will takeaway
-    - [delivery](service)
-    - delivered
-    - [takeaway](service)
-    - dine-in 
-
 - intent: delivery_address
   examples: |
     - Langata, Langata road, Oakland House
+    - St. Luke cravers opposite ACK church
     - Thika, Kwame Nkurumah street, kigio plaza
     - westlands, waiyaki way, delta towers
+    - Elite suites jomoko thika
     - parklands, 5th avenue, kwaheri villas
+    - Cravers, elite apartments
+    - Thika,kigio plaza ground floor
     - garden estate, thika road, zuhari apartments   
 
 - intent: phone_number
@@ -394,7 +449,40 @@ nlu:
     - my phone number is [0773870799](phone_number)
     - [0787123123](phone_number)    
     - my telephone number is [254773870799](phone_number)
-    - my number is  [0773870799](phone_number)    
+    - my number is  [0773870799](phone_number)
+
+- intent: ask_price
+  examples: |
+    - how much does it cost?
+    - What is the price of the pizza?
+    - What's the price tag?
+    - How much do I need to pay?
+    - cost of a pizza
+    - What's the price for a pizza
+    - price range
+    - How much will the pizza cost?
+    - What's the cost
+    - pizza price
+    - how much
+    - how much is the price for a large pizza
+    - What's the price range?
+    - What does it cost?
+    - pizza cost
+    - give me pizza price
+    - price
+    - How much is the pizza going for?
+    - What's the price point?
+    - Can you give me price?
+    - charges
+    - What's the price of an extra large price
+    - How much am I looking at?
+    - How much 
+    - What's the pizza expense?
+    - What's the cost
+    - What's the pizza charge?
+    - What's the price for a medium pizza?
+    - What's the selling price?
+    - How much will it cost me?        
 
 - intent: locate_us
   examples: |
@@ -438,3 +526,111 @@ nlu:
 - regex: phone_number
   examples: |
     - \d{10,12}
+
+- lookup: pizza_kind
+  examples: |
+    - Margherita
+    - Veggie Lovers
+    - Tropical Lovers
+    - Pepperoni Lovers
+    - Bbq Beef
+    - Bbq Chicken
+    - Super Supreme
+
+- synonym: Margherita
+  examples: |
+    - margherita
+    - MARGHERITA
+    - mArGhErItA
+- synonym: Veggie lovers
+  examples: |
+    - veggie lovers
+    - VEGGIE LOVERS
+    - Veggie Lovers
+    - veggie Lovers
+    - VEGGIE lovers
+    - veggie
+    - VEGGIE
+    - Veggie
+    - veggie   
+- synonym: Tropical vegan
+  examples: |
+    - tropical vegan
+    - TROPICAL VEGAN
+    - Tropical Vegan
+    - tropical Vegan
+    - TROPICAL vegan
+    - tropical
+    - TROPICAL
+    - Tropical
+    - vegan
+    - VEGAN
+    - Vegan         
+- synonym: Pepperoni lovers
+  examples: |
+    - pepperoni lovers
+    - PEPPERONI LOVERS
+    - Pepperoni Lovers
+    - pepperoni Lovers
+    - PEPPERONI lovers
+    - pepperoni
+    - PEPPERONI
+    - Pepperoni
+- synonym: Bbq beef
+  examples: |
+    - bbq beef
+    - BBQ BEEF
+    - Bbq Beef
+    - beef
+    - BEEF
+    - Beef
+- synonym: Bbq chicken
+  examples: |
+    - bbq chicken
+    - BBQ CHICKEN
+    - Bbq Chicken
+    - chicken
+    - CHICKEN
+    - Chicken
+- synonym: Super supreme
+  examples: |
+    - super supreme
+    - SUPER SUPREME
+    - Super Supreme
+    - supreme
+    - SUPREME
+    - Supreme
+- synonym: Medium
+  examples: |
+    - medium
+    - MEDIUM
+    - M
+    - m    
+- synonym: Large
+  examples: |
+    - large
+    - LARGE
+    - L
+    - l
+- synonym: Extra large
+  examples: |
+    - extra large
+    - EXTRA LARGE
+    - Extra Large
+    - XL
+    - xl
+    - extralarge
+    - EXTRALARGE
+    - ExtraLarge
+- synonym: lovers
+  examples: |
+    - Lovers
+    - LOVERS 
+    - Lover
+    - lover
+    - LOVER 
+- synonym: BBQ
+  examples: |
+    - bbq
+    - Bbq
+    - BBq    

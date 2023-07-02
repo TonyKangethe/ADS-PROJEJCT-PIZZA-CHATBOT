@@ -1,0 +1,10 @@
+[
+  {
+    "name": "phone_number",
+    "pattern": "\\d{10,12}"
+  },
+  {
+    "name": "pizza_kind",
+    "pattern": "(\\bMargherita\\b|\\bVeggie\\ Lovers\\b|\\bTropical\\ Lovers\\b|\\bPepperoni\\ Lovers\\b|\\bBbq\\ Beef\\b|\\bBbq\\ Chicken\\b|\\bSuper\\ Supreme\\b)"
+  }
+]

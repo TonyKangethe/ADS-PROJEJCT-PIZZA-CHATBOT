@@ -1,0 +1,102 @@
+{
+    "_default": {
+        "1": {
+            "firstName": "Nicholas",
+            "lastName": "Collins",
+            "pizzaType": "Pepperoni lovers",
+            "pizzaSize": "Medium",
+            "phoneNumber": "0700000000",
+            "address": "St. Luke cravers opposite ACK church",
+            "orderID": "C5PSHLE",
+            "timeStamp": [
+                "22:15:14"
+            ],
+            "dateStamp": "2023-05-28",
+            "userID": "5249905853"
+        },
+        "2": {
+            "firstName": "Mary",
+            "lastName": "Wambui",
+            "pizzaType": "Bbq chicken",
+            "pizzaSize": "Large",
+            "phoneNumber": "0700000000",
+            "address": "Thika,kigio plaza ground floor",
+            "orderID": "ACSN0K0",
+            "timeStamp": [
+                "22:19:00"
+            ],
+            "dateStamp": "2023-05-28",
+            "userID": "5968172737"
+        },
+        "3": {
+            "firstName": "Anthony",
+            "lastName": "Kangethe",
+            "pizzaType": "Pepperoni lovers",
+            "pizzaSize": "Large",
+            "phoneNumber": "0700000000",
+            "address": "Elite suites jomoka thika",
+            "orderID": "6IHT5IX",
+            "timeStamp": [
+                "22:24:49"
+            ],
+            "dateStamp": "2023-05-28",
+            "userID": "5476025074"
+        },
+        "4": {
+            "firstName": "Nicholas",
+            "lastName": "Collins",
+            "pizzaType": "Bbq beef",
+            "pizzaSize": "Extra large",
+            "phoneNumber": "0700000000",
+            "address": "Cravers, elite apartments",
+            "orderID": "XCMQLA7",
+            "timeStamp": [
+                "08:07:14"
+            ],
+            "dateStamp": "2023-05-29",
+            "userID": "5249905853"
+        },
+        "5": {
+            "firstName": "bob",
+            "lastName": "harris",
+            "pizzaType": "Super supreme",
+            "pizzaSize": "Large",
+            "phoneNumber": "0700000000",
+            "address": "Cravers, elite apartments",
+            "orderID": "IK6NPAW",
+            "timeStamp": [
+                "22:19:17"
+            ],
+            "dateStamp": "2023-06-28",
+            "userID": "6e73a4a888454157b21c649f8c3f264f"
+        },
+        "6": {
+            "firstName": "Anthony",
+            "lastName": "Kangethe",
+            "pizzaType": "Margherita",
+            "pizzaSize": "Large",
+            "phoneNumber": "0700000000",
+            "address": "Thika plaza, next to gateway mall",
+            "orderID": "N2WGUID",
+            "timeStamp": [
+                "17:19:06"
+            ],
+            "dateStamp": "2023-07-02",
+            "userID": "5476025074"
+        },
+        "7": {
+            "firstName": "Anthony",
+            "lastName": "Kangethe",
+            "pizzaType": "Margherita",
+            "pizzaSize": "Large",
+            "phoneNumber": "0700000000",
+            "address": "Thika plaza, next to gateway mall",
+            "orderID": "LVFNUBG",
+            "timeStamp": [
+                "17:20:14"
+            ],
+            "dateStamp": "2023-07-02",
+            "userID": "5476025074"
+        }
+    }
+}

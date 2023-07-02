@@ -11,12 +11,14 @@ intents:
 - help
 - out_of_context
 - bot_challenge
+- inform_order
 - buy_pizza
 - pizza_kind
 - pizza_size
 - name
 - service
 - delivery_address
+- ask_price
 - locate_us
 - office_hours
 - phone_number
@@ -72,19 +74,7 @@ slots:
       - type: from_text
         conditions:
          - active_loop: order_form
-           requested_slot: deliveryAddress
-  orderStatus:
-    type: categorical
-    influence_conversation: false
-    values:
-      - confirm
-      - cancel
-      - change
-    mappings:
-      - type: from_text
-        conditions:
-         - active_loop: order_form
-           requested_slot: orderStatus           
+           requested_slot: deliveryAddress          
 
           
 forms:
@@ -96,9 +86,6 @@ forms:
       - last_name
       - phone_number
       - deliveryAddress
-      - orderStatus
-
-
 
 responses:
   utter_greet:
@@ -106,15 +93,17 @@ responses:
 
   utter_happy:
   - text: "Great"
+  - text: "Sure thing"
+  - text: "Definitely"
 
   utter_goodbye:
-  - text: "Bye,Hope to see you soon 😚😚😚"
+  - text: "Bye, Hope to see you soon 😚😚😚"
 
   utter_help:
   - text: " Here is what I can assist you with:\n
              - Order a pizza\n
              - Get pizza Menu\n
-             - Locate our pizza shops\n"
+             - Locate our pizza shops"
 
   utter_out_of_context:
   - text: Sorry, I'm not sure how to respond to that. Type "help" for assistance.
@@ -123,69 +112,86 @@ responses:
   - text: I didn't quite understand that. Could you rephrase?  
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am your Virtual Assistant, ⚡powered⚡ by Rasa Open Source.\n\n\nBut you call me NARU."
 
   utter_menu:
-  - text: "Here is what you can order:"
-    image: "./lunchBoxMenu.jpg"
+  - image: https://i.imgur.com/83XI3Ts.jpeg
+    text: 'Here is what you can order:' 
 
-  utter_submit:
-  - text: "I will now order for you:"
-
-  utter_ask_continue:
-  - text: "Are you sure you want cancel?"
+  utter_ask_cancel_order:
+  - text: "Are you sure you want to cancel the order?"
+    buttons:
+    - title: "Yes"
+      payload: affirm
+    - title: "No"
+      payload: deny
 
   utter_ask_pizza_size:
   - text: "What size would you like?"
+  - text: "How big?\n\n\nMedium\nLarge\nExtra large"
+  - text: "Can I get the size for the pizza"
 
   utter_ask_pizza_kind:
-  - text: "What pizza do you want"
+  - text: "Which pizza would you like to order"
+  - text: "What pizza do you want to order, otherwise ask me to show the menu."
+  - text: "Ok, tell me the pizza you want"
 
   utter_ask_first_name:
-  - text: "What is your first name?"
+  - text: "Can I get your first name?"
 
   utter_ask_last_name:
-  - text: "So {first_name}, what is your last name?"
+  - text: "OK {first_name}, how about your last name?"
 
   utter_ask_phone_number:
-  - text: "what is your phone number?" 
-
+  - text: "In case of anything, kindly provide a phonenumber for the order"
+  - text: "Kindly provide a contact number in case we have to comunicate with you, with regards to the order."
+  - text: "Ok! I'll need a phonenumber for contact purposes."
+  
   utter_ask_deliveryAddress:
-  - text: "Finally, provide a delivery address 🏍"
+  - text: "Finally, an delivery address for the order"
+  - text: "I need an address to be able to deliver your order"
+  - text: "Great! I can't send the order to you without a delivery address"  
 
-  utter_ask_orderStatus:
-  - text: "Everything looks ok 👍, do you want to place the order:"
+  utter_ask_confirmation:
+  - text: "Everything looks ok 👍, do you want to place the order?"
+    buttons:
+    - title: "Confirm"
+      payload: affirm
+    - title: "Cancel"
+      payload: deny
 
   utter_outlets:
-  - text: "We are currently located at 📍: \n\n
+  - text: "We are currently located at 📍:\n
+
               - Village Market, Limuru Road.\n
+
               - Westgate Mall, Mwanzi Road, Westlands.\n
+
               - Yaya Centre, Arwigs Kodhek Road.\n
+
               - Galleria Mall, Langata Road"
   utter_office_hours:
-  - text: "Our working hours 🧭 are:\n\n
+  - text: "Our working hours 🧭 are:\n
               - Monday-Saturday: 
-                    10:00am - 10:00pm\n\n
+                    10:00am - 10:00pm\n
               - Sunday & Public Holidays:
                     11:00am - 10:00pm"          
 
 actions:
-- utter_ask_continue
 - utter_iamabot
 - utter_menu
 - utter_goodbye
 - utter_greet
-- utter_submit
+- action_hi
 - action_ask_delivery_address
-- action_ask_service
-- action_locate_us
-- action_office_hours
+- action_show_price
 - action_show_user_cart
-- action_resetSlots
-- action_ask_orderStatus
 - action_toDB
+- action_resetSlots
+- action_cancelOrder
+- action_ask_confirmation
 - validate_order_form
 
 session_config:
-  session_expiration_time: 30
+  session_expiration_time: 10
   carry_over_slots_to_new_session: true

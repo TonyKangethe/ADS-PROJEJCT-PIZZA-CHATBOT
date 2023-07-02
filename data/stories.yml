@@ -2,71 +2,27 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: orders happy path
+  steps:
+  - intent: inform_order
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_show_user_cart  
+  - action: action_ask_confirmation
+  - intent: affirm
+  - action: action_toDB
+  - action: action_resetSlots
+  - intent: thank
+  - action: utter_goodbye  
+
+- story: user orders happy path
   steps:
   - intent: greet
-  - action: utter_greet
-  - action: utter_help
-
-- story: answer out of context
-  steps:
-  - intent: out_of_context
-  - action: utter_out_of_context
-
-- story: give help
-  steps:
-  - intent: help
-  - action: utter_help
-
-- story: inform pizza outlets
-  steps:
-  - intent: locate_us
-  - action: action_locate_us
-
-- story: inform office hours
-  steps:
-  - intent: office_hours
-  - action: action_office_hours
-
-- story: inform store location+office hours
-  steps:
-  - intent: locate_us
-  - action: action_locate_us  
-  - intent: office_hours
-  - action: action_office_hours
-
-- story: inform office hours+store location
-  steps:
-  - intent: office_hours
-  - action: action_office_hours
-  - intent: locate_us
-  - action: action_locate_us         
-
-- story: user cancels order_1
-  steps:
-  - intent: buy_pizza
-  - action: order_form
-  - active_loop: order_form
-  - intent: cancel
-  - action: utter_ask_continue
-  - intent: affirm
-  - action: action_deactivate_loop
-  - active_loop: null
-
-- story: user cancels order but want to continue_1
-  steps:
-  - intent: buy_pizza
-  - action: order_form
-  - active_loop: order_form
-  - intent: cancel
-  - action: utter_ask_continue
-  - intent: deny
-  - action: utter_happy
-  - action: order_form
-  - active_loop: order_form
-
-- story: story_1
-  steps:
+  - action: action_hi
+  - action: utter_help  
   - intent: buy_pizza
   - action: order_form
   - active_loop: order_form
@@ -93,16 +49,227 @@ stories:
   - slot_was_set:
     - requested_slot: deliveryAddress
   - slot_was_set:
-    - deliveryAddress: "Thika, Kwame Nkurumah street, kigio plaza"
-  - slot_was_set:  
-    - requested_slot: orderStatus    
-  - slot_was_set:  
-    - orderStatus: Confirm
+    - deliveryAddress: "House 10, Kwame Nkurumah street, kigio plaza"
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  - action: utter_submit
   - action: action_show_user_cart  
+  - action: action_ask_confirmation
+  - intent: affirm
   - action: action_toDB
   - action: action_resetSlots
+  - intent: thank
   - action: utter_goodbye
+
+- story: user orders but cancels at the end
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help  
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: pizza_kind
+  - slot_was_set:
+    - pizza_kind: "tropical vegan"
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - slot_was_set:
+    - pizza_size: medium
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: Mary
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: kangethe
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - phone_number: 0799999999
+  - slot_was_set:
+    - requested_slot: deliveryAddress
+  - slot_was_set:
+    - deliveryAddress: "Thika,kigio plaza ground floor"
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_show_user_cart      
+  - action: action_ask_confirmation
+  - intent: deny
+  - action: action_toDB
+  - action: action_resetSlots
+  - intent: thank
+  - action: utter_goodbye
+
+#---------------------cancel order midway------------------------#
+- story: user cancels order mid-way0
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help  
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: cancel
+  - action: utter_ask_cancel_order
+  - intent: affirm
+  - action: action_cancelOrder
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user cancels order mid-way1
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help  
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: last_name
+  - intent: cancel
+  - action: utter_ask_cancel_order
+  - intent: affirm
+  - action: action_cancelOrder
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: goodbye
+  - action: utter_goodbye 
+
+- story: user cancels order mid-way2
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help  
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: deliveryAddress
+  - intent: cancel
+  - action: utter_ask_cancel_order
+  - intent: affirm
+  - action: action_cancelOrder
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: thank
+  - action: utter_goodbye
+
+#---------------------cancel order but continues------------------------#  
+
+- story: user cancels order mid-way but continues
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help  
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: pizza_kind
+  - intent: cancel
+  - action: utter_ask_cancel_order
+  - intent: deny
+  - action: order_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_show_user_cart
+  - action: action_ask_confirmation
+  - intent: affirm
+  - action: action_toDB
+  - action: action_resetSlots
+  - intent: thank
+  - action: utter_goodbye  
+
+- story: user cancels order mid-way but continues2
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help  
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - intent: cancel
+  - action: utter_ask_cancel_order
+  - intent: deny
+  - action: order_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_show_user_cart
+  - action: action_ask_confirmation
+  - intent: affirm
+  - action: action_toDB    
+  - action: action_resetSlots
+  - intent: thank
+  - action: utter_goodbye   
+
+- story: user cancels order mid-way but continues3
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help  
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - slot_was_set:
+    - requested_slot: phone_number
+  - intent: cancel
+  - action: utter_ask_cancel_order
+  - intent: deny
+  - action: order_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_show_user_cart
+  - action: action_ask_confirmation
+  - intent: affirm
+  - action: action_toDB  
+  - action: action_resetSlots
+  - intent: thank
+  - action: utter_goodbye
+
+- story: User interrupts the form and doesn't want to continue
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - intent: cancel
+  - action: utter_ask_cancel_order
+  - intent: affirm
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_resetSlots
+
+
+- story: User interrupts the form and want to continue
+  steps:
+  - intent: greet
+  - action: action_hi
+  - action: utter_help
+  - intent: buy_pizza
+  - action: order_form
+  - active_loop: order_form
+  - intent: cancel
+  - action: utter_ask_cancel_order
+  - intent: deny
+  - action: order_form  
