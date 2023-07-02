@@ -1,0 +1,6 @@
+rasa==3.5.10
+python==3.9.16
+phonenumbers==8.13.11
+spacy==3.5.3
+tensorflow==2.11.0
+tinydb==4.7.1
